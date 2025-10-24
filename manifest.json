@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Survev.io Pixi Patch + Skins",
+  "version": "1.2",
+  "description": "Exposes PixiJS and injects placeholder skins locally.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "*://*.survev.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.survev.io/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "BTiZUX_n.patched.js",
+        "skins/*",
+        "pageHook.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
